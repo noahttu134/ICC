@@ -3,9 +3,9 @@ var cy = [];
 var N, i;
 function setup() {
 createCanvas(windowWidth, windowHeight);
-frameRate(10);
+background(0);
 
-N = 1000;
+N = 20;
 for (i=0; i<N; i++) {
 cx[i] = random(0, width);
 cy[i] = random(0, height);
@@ -13,18 +13,16 @@ cy[i] = random(0, height);
 }
 
 function draw() {
-  
-background(125);
-noStroke();
-fill(255);
 
-for (i=0; i<N; i++) {
-cx[i] = cx[i] + random(0, mouseX/100);
-cy[i] = cy[i] + random(0, 10);
-var snowSz=random(5,10);
-ellipse(cx[i], cy[i], snowSz, snowSz);
-if (cx[i]>windowWidth){cx[i]=0;}
-if (cy[i]>windowHeight){cy[i]=0;}
+
+  for (i=0; i<N; i++) {
+      cx[i]=cx[i]+random(-20, 20);
+      cy[i]=cy[i]+random(-10, 10);
+
+      noFill();
+      smooth();
+      strokeWeight(0.1);
+      stroke(0,0,255);
+      ellipse(cx[i], cy[i], 50, 50);
 }
-
 }
